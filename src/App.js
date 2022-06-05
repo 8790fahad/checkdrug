@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { Container, Nav } from "react-bootstrap";
-import { login, logout as destroy, accountBalance }  from "./utils/helper";
-import coverImg from "./image/sandwich.jpg"
+import { login, logout as destroy, accountBalance } from "./utils/helper";
+import coverImg from "./image/sandwich.jpg";
 import "./App.css";
 import Wallet from "./component/Wallet";
 import Cover from "./utils/Cover";
@@ -41,7 +41,7 @@ const App = function AppWrapper() {
           </main>
         </Container>
       ) : (
-        <Cover name="Street Food" login={login} coverImg={coverImg} />
+        <Cover name="Drug List" login={login} coverImg={coverImg} />
       )}
     </>
   );

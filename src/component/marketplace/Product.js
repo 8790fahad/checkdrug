@@ -4,7 +4,7 @@ import { utils } from "near-api-js";
 import { Card, Button, Col, Badge, Stack } from "react-bootstrap";
 
 const Product = ({ product, buy }) => {
-  const { id, price, name, description="bnb", sold, location, image, owner } =
+  const { id, price, name, description, sold, location, image, owner } =
     product;
 
   const triggerBuy = () => {

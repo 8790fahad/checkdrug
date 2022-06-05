@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = ({ save }) => {
+  const navigate =useNavigate()
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -14,10 +16,13 @@ const AddProduct = ({ save }) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navToInventory=()=>{
+    navigate("/inventory")
+  }
   return (
     <>
       <Button
-        onClick={handleShow}
+        onClick={navToInventory}
         variant="dark"
         className="rounded-pill px-0"
         style={{ width: "38px" }}

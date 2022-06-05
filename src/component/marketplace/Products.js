@@ -7,6 +7,7 @@ import {
   getProducts as getProductList,
   buyProduct,
   createProduct,
+  getDrugs,
 } from "../../utils/marketplace";
 import Loader from "../../utils/loader";
 import {
@@ -15,13 +16,14 @@ import {
 } from "../../utils/Notification";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [drugs, setDrugs] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const getProducts = useCallback(async () => {
     try {
       setLoading(true);
-      setProducts(await getProductList());
+      const drugs=await getDrugs();
+      setDrugs(drugs)
     } catch (error) {
       console.log({ error });
     } finally {
@@ -45,17 +47,17 @@ const Products = () => {
   };
 
   const buy = async (id, price) => {
-    try {
-      await buyProduct({
-        id,
-        price,
-      }).then((resp) => getProducts());
-      toast(<NotificationSuccess text="Product bought successfully" />);
-    } catch (error) {
-      toast(<NotificationError text="Failed to purchase product." />);
-    } finally {
-      setLoading(false);
-    }
+    // try {
+    //   // await buyProduct({
+    //   //   id,
+    //   //   price,
+    //   // }).then((resp) => getProducts());
+    //   toast(<NotificationSuccess text="Product bought successfully" />);
+    // } catch (error) {
+    //   toast(<NotificationError text="Failed to purchase product." />);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   useEffect(() => {
@@ -67,11 +69,11 @@ const Products = () => {
       {!loading ? (
         <>
           <div className="d-flex justify-content-between align-items-center mb-4">
-            <h1 className="fs-4 fw-bold mb-0">Street Food</h1>
+            <h1 className="fs-4 fw-bold mb-0">Buy Drug</h1>
             <AddProduct save={addProduct} />
           </div>
           <Row xs={1} sm={2} lg={3} className="g-3  mb-5 g-xl-4 g-xxl-5">
-            {products.map((_product) => (
+            {drugs.map((_product) => (
               <Product
                 product={{
                   ..._product,
