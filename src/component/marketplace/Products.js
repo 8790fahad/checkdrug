@@ -3,12 +3,7 @@ import { toast } from "react-toastify";
 import AddProduct from "./AddProduct";
 import Product from "./Product";
 import { Row } from "react-bootstrap";
-import {
-  getProducts as getProductList,
-  buyProduct,
-  createProduct,
-  getDrugs,
-} from "../../utils/marketplace";
+import { buyDrug, createProduct, getDrugs } from "../../utils/marketplace";
 import Loader from "../../utils/loader";
 import {
   NotificationError,
@@ -22,15 +17,42 @@ const Products = () => {
   const getProducts = useCallback(async () => {
     try {
       setLoading(true);
-      const drugs=await getDrugs();
-      setDrugs(drugs)
+      const drugs = await getDrugs();
+      const arr = [];
+      drugs.forEach((item) => {
+        arr.push({ ...item, sold: 1 });
+      });
+      setDrugs(arr);
     } catch (error) {
       console.log({ error });
     } finally {
       setLoading(false);
     }
   }, []);
-
+  const increaseQty = (index) => {
+    const arr = [];
+    drugs.forEach((item, ind) => {
+      if (ind === index) {
+        arr.push({ ...item, sold: item.sold + 1 });
+      } else {
+        arr.push(item);
+      }
+    });
+    console.log(arr);
+    setDrugs(arr);
+  };
+  const decreaseQty = (index) => {
+    const arr = [];
+    drugs.forEach((item, ind) => {
+      if (ind === index) {
+        arr.push({ ...item, sold: item.sold - 1 });
+      } else {
+        arr.push(item);
+      }
+    });
+    console.log(arr);
+    setDrugs(arr);
+  };
   const addProduct = async (data) => {
     try {
       setLoading(true);
@@ -46,18 +68,15 @@ const Products = () => {
     }
   };
 
-  const buy = async (id, price) => {
-    // try {
-    //   // await buyProduct({
-    //   //   id,
-    //   //   price,
-    //   // }).then((resp) => getProducts());
-    //   toast(<NotificationSuccess text="Product bought successfully" />);
-    // } catch (error) {
-    //   toast(<NotificationError text="Failed to purchase product." />);
-    // } finally {
-    //   setLoading(false);
-    // }
+  const buy = async (drug) => {
+    try {
+      await buyDrug({ drug, qty: drug.sold }).then((resp) => getProducts());
+      toast(<NotificationSuccess text="Product bought successfully" />);
+    } catch (error) {
+      toast(<NotificationError text="Failed to purchase product." />);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -73,8 +92,11 @@ const Products = () => {
             <AddProduct save={addProduct} />
           </div>
           <Row xs={1} sm={2} lg={3} className="g-3  mb-5 g-xl-4 g-xxl-5">
-            {drugs.map((_product) => (
+            {drugs.map((_product, ind) => (
               <Product
+                index={ind}
+                increaseQty={increaseQty}
+                decreaseQty={decreaseQty}
                 product={{
                   ..._product,
                 }}

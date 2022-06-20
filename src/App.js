@@ -1,12 +1,11 @@
 import React, { useEffect, useCallback, useState } from "react";
-import { Container, Nav } from "react-bootstrap";
-import { login, logout as destroy, accountBalance } from "./utils/helper";
-import coverImg from "./image/sandwich.jpg";
+import { Container } from "react-bootstrap";
+import { login, accountBalance } from "./utils/helper";
+import coverImg from "./image/drugs.jpeg";
 import "./App.css";
-import Wallet from "./component/Wallet";
 import Cover from "./utils/Cover";
-import { Notification } from "./utils/Notification";
 import Products from "./component/marketplace/Products";
+import NavBar from "./component/marketplace/Nav";
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
@@ -23,25 +22,17 @@ const App = function AppWrapper() {
   //..
   return (
     <>
-      <Notification />
+     
+
       {account.accountId ? (
         <Container fluid="md">
-          <Nav className="justify-content-end pt-3 pb-5">
-            <Nav.Item>
-              <Wallet
-                address={account.accountId}
-                amount={balance}
-                symbol="NEAR"
-                destroy={destroy}
-              />
-            </Nav.Item>
-          </Nav>
+          <NavBar balance={balance}/>
           <main>
             <Products />
           </main>
         </Container>
       ) : (
-        <Cover name="Drug List" login={login} coverImg={coverImg} />
+        <Cover name="Drug Tracker" login={login} coverImg={coverImg} />
       )}
     </>
   );

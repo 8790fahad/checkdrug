@@ -6,27 +6,49 @@ const Cover = ({ name, login, coverImg }) => {
   if ((name, login, coverImg)) {
     return (
       <div
-        className="d-flex justify-content-center flex-column text-center "
+        className="d-flex  flex-column  p-3"
         style={{ background: "#000", minHeight: "100vh" }}
       >
-        <div className="mt-auto text-light mb-5">
-          <div
-            className=" ratio ratio-1x1 mx-auto mb-2"
-            style={{ maxWidth: "320px" }}
-          >
-            <img src={coverImg} alt="" />
-          </div>
-          <h1>{name}</h1>
-          <p>Please connect your wallet to continue.</p>
+        <div
+          className="d-flex m-4 text-center"
+          style={{ justifyContent: "space-between" }}
+        >
+          <h4 className="text-start text-light">{name}</h4>
           <Button
             onClick={login}
             variant="outline-light"
-            className="rounded-pill px-3 mt-3"
+            className="rounded-pill"
           >
             Connect Wallet
           </Button>
         </div>
-        <p className="mt-auto text-secondary">Powered by NEAR</p>
+        <div className=" row text-light mt-5">
+          <div className="col-md-5  m-4">
+            <h1 className="text-center mt-4">Welcome to Drug Tracker</h1>
+            <div
+              style={{ fontSize: "24px", opacity: 0.8, lineHeight: "5vh" }}
+              className="mt-4"
+            >
+              Authentic stock is managed and tracked efficiently using
+              blockchain technology. This is addressed by using the smart
+              contract which helps to track the movement of drugs from supplier
+              to pharmacies and finally pharmacies to patient. duplicate drugs,
+              expired drugs and fake drugs are completely avoided by using the
+              blockchain technology.
+            </div>
+          </div>
+          <div className="col-md-1" />
+          <div className="col-md-5 mt-4">
+            <img
+              src={coverImg}
+              alt=""
+              style={{ marginTop: "5vh", width: "80vh", height: "40vh" }}
+            />
+          </div>
+        </div>
+        <p className="mt-auto text-secondary text-center">
+          Powered by DrugTracker
+        </p>
       </div>
     );
   }

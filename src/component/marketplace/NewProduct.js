@@ -11,9 +11,11 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import {  setDrug } from "../../utils/marketplace";
-import { NotificationError, NotificationSuccess } from "../../utils/Notification";
-
+import { setDrug } from "../../utils/marketplace";
+import {
+  NotificationError,
+  NotificationSuccess,
+} from "../../utils/Notification";
 
 function NewProduct() {
   const navigate = useNavigate();
@@ -27,6 +29,8 @@ function NewProduct() {
     unit_of_issue: "",
     balance: 0,
     image: "",
+    reorder_level: "",
+    
   });
   const [loading, setLoading] = useState(false);
   const handleChange = ({ target: { name, value } }) => {
@@ -41,6 +45,7 @@ function NewProduct() {
     form.price;
 
   const addProduct = async (data) => {
+    
     try {
       setLoading(true);
       await setDrug(data).then((resp) => {
@@ -110,7 +115,7 @@ function NewProduct() {
                   />
                 </FloatingLabel>
               </Col>
-              <Col sm={12}>
+              <Col sm={6}>
                 <FloatingLabel
                   controlId="inputGenericName"
                   label="Generic Name"
@@ -123,6 +128,22 @@ function NewProduct() {
                     className="size-sm"
                     value={form.generic_name}
                     placeholder="Enter generic name"
+                  />
+                </FloatingLabel>
+              </Col>
+              <Col sm={6}>
+                <FloatingLabel
+                  controlId="inputreoderLevel"
+                  label="Reorder Level"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    name="reorder_level"
+                    onChange={handleChange}
+                    className="size-sm"
+                    value={form.reorder_level}
+                    placeholder="Enter reoder level"
                   />
                 </FloatingLabel>
               </Col>

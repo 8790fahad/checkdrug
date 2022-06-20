@@ -15,6 +15,7 @@ const AddProduct = ({ save }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
+  // eslint-disable-next-line no-unused-vars
   const handleShow = () => setShow(true);
   const navToInventory=()=>{
     navigate("/inventory")
@@ -97,6 +98,7 @@ const AddProduct = ({ save }) => {
                 type="text"
                 placeholder="Price"
                 onChange={(e) => {
+                  // let price =parseFloat(e.target.value)*1000000000000000000000000
                   setPrice(e.target.value);
                 }}
               />
