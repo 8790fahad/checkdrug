@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/drug_cipher/static/css/main.d87cbb72.chunk.css",
-    "main.js": "/drug_cipher/static/js/main.5332f120.chunk.js",
-    "main.js.map": "/drug_cipher/static/js/main.5332f120.chunk.js.map",
-    "runtime-main.js": "/drug_cipher/static/js/runtime-main.a9bc8a74.js",
-    "runtime-main.js.map": "/drug_cipher/static/js/runtime-main.a9bc8a74.js.map",
-    "static/css/2.a0d0aa1c.chunk.css": "/drug_cipher/static/css/2.a0d0aa1c.chunk.css",
-    "static/js/2.3a5ecc66.chunk.js": "/drug_cipher/static/js/2.3a5ecc66.chunk.js",
-    "static/js/2.3a5ecc66.chunk.js.map": "/drug_cipher/static/js/2.3a5ecc66.chunk.js.map",
-    "static/js/3.90071901.chunk.js": "/drug_cipher/static/js/3.90071901.chunk.js",
-    "static/js/3.90071901.chunk.js.map": "/drug_cipher/static/js/3.90071901.chunk.js.map",
-    "index.html": "/drug_cipher/index.html",
-    "static/css/2.a0d0aa1c.chunk.css.map": "/drug_cipher/static/css/2.a0d0aa1c.chunk.css.map",
-    "static/css/main.d87cbb72.chunk.css.map": "/drug_cipher/static/css/main.d87cbb72.chunk.css.map",
-    "static/js/2.3a5ecc66.chunk.js.LICENSE.txt": "/drug_cipher/static/js/2.3a5ecc66.chunk.js.LICENSE.txt",
-    "static/media/bootstrap-icons.css": "/drug_cipher/static/media/bootstrap-icons.f2539a50.woff2"
+    "main.css": "/drugcipher/static/css/main.d87cbb72.chunk.css",
+    "main.js": "/drugcipher/static/js/main.7e817a8b.chunk.js",
+    "main.js.map": "/drugcipher/static/js/main.7e817a8b.chunk.js.map",
+    "runtime-main.js": "/drugcipher/static/js/runtime-main.4bba988c.js",
+    "runtime-main.js.map": "/drugcipher/static/js/runtime-main.4bba988c.js.map",
+    "static/css/2.be453fd4.chunk.css": "/drugcipher/static/css/2.be453fd4.chunk.css",
+    "static/js/2.4eae44dc.chunk.js": "/drugcipher/static/js/2.4eae44dc.chunk.js",
+    "static/js/2.4eae44dc.chunk.js.map": "/drugcipher/static/js/2.4eae44dc.chunk.js.map",
+    "static/js/3.90071901.chunk.js": "/drugcipher/static/js/3.90071901.chunk.js",
+    "static/js/3.90071901.chunk.js.map": "/drugcipher/static/js/3.90071901.chunk.js.map",
+    "index.html": "/drugcipher/index.html",
+    "static/css/2.be453fd4.chunk.css.map": "/drugcipher/static/css/2.be453fd4.chunk.css.map",
+    "static/css/main.d87cbb72.chunk.css.map": "/drugcipher/static/css/main.d87cbb72.chunk.css.map",
+    "static/js/2.4eae44dc.chunk.js.LICENSE.txt": "/drugcipher/static/js/2.4eae44dc.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/drugcipher/static/media/bootstrap-icons.f2539a50.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.a9bc8a74.js",
-    "static/css/2.a0d0aa1c.chunk.css",
-    "static/js/2.3a5ecc66.chunk.js",
+    "static/js/runtime-main.4bba988c.js",
+    "static/css/2.be453fd4.chunk.css",
+    "static/js/2.4eae44dc.chunk.js",
     "static/css/main.d87cbb72.chunk.css",
-    "static/js/main.5332f120.chunk.js"
+    "static/js/main.7e817a8b.chunk.js"
   ]
 }
