@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/drugcipher/static/css/main.d87cbb72.chunk.css",
-    "main.js": "/drugcipher/static/js/main.7e817a8b.chunk.js",
-    "main.js.map": "/drugcipher/static/js/main.7e817a8b.chunk.js.map",
+    "main.js": "/drugcipher/static/js/main.ff09526a.chunk.js",
+    "main.js.map": "/drugcipher/static/js/main.ff09526a.chunk.js.map",
     "runtime-main.js": "/drugcipher/static/js/runtime-main.4bba988c.js",
     "runtime-main.js.map": "/drugcipher/static/js/runtime-main.4bba988c.js.map",
     "static/css/2.be453fd4.chunk.css": "/drugcipher/static/css/2.be453fd4.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.be453fd4.chunk.css",
     "static/js/2.4eae44dc.chunk.js",
     "static/css/main.d87cbb72.chunk.css",
-    "static/js/main.7e817a8b.chunk.js"
+    "static/js/main.ff09526a.chunk.js"
   ]
 }
