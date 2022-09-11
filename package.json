@@ -2,7 +2,7 @@
   "name": "near-marketplace",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://8790fahad.github.io/near-maketplace-dapp",
+  "homepage": "https://8790fahad.github.io/drug_cipher",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
