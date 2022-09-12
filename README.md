@@ -1,14 +1,13 @@
 Drug Cipher is the peer-to-peer drugs tracking application.
 
 step by step on how to use the system.
-1. first you would see the landing page, so you can connect your NEAR wallet to the system.
+first you would see the landing page, so you can connect your NEAR wallet to the system.
 !['login page'](https://github.com/8790fahad/drugcipher/blob/main/src/image/login_page.png?raw=true)
 
-1.1
 so once you click connect it would take you here.
-!['connecting with NEAR wallet'](https://github.com/8790fahad/drugcipher/blob/main/src/image/connecting1.png?raw=true)
+!['connecting with NEAR wallet'](https://github.com/8790fahad/drugcipher/blob/main/src/image/conecting1.png?raw=true)
 
-1.2  so, sellect the wallet you want to use and import it
+ so, sellect the wallet you want to use and import it
 
 !['login page'](https://github.com/8790fahad/drugcipher/blob/main/src/image/connecting2.png?raw=true)
 
