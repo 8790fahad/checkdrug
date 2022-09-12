@@ -3,6 +3,7 @@ import { listedDrug, Drug, drugEntries, DrugListEntries } from "./model";
 import { ContractPromiseBatch, context } from "near-sdk-as";
 export const products = new PersistentUnorderedMap<string, string>("PRODUCTS");
 
+// purchase the drugs function
 export function setDrug(drug: Drug, receive_date: string): void {
   let storeDrug = listedDrug.get(drug.drug_code);
   if (

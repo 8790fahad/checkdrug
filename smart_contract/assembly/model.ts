@@ -2,6 +2,8 @@ import { PersistentUnorderedMap, context } from "near-sdk-as";
 export const listedDrug = new PersistentUnorderedMap<string, Drug>(
   "LISTED_PRODUCTS"
 );
+
+// drugs class which contains the all details of drugs
 @nearBindgen
 export class Drug {
   balance: u32;
@@ -35,18 +37,24 @@ export class Drug {
     return product;
   }
 
+  // a public function that increase the drugs quantity when purchasing
+
   public   increaseDrug(qty: u32,drug_code:string): void {
     const drug = listedDrug.get(drug_code);
     if (drug == null) throw new Error("product not found");
     else drug.balance = drug.balance+qty;
     listedDrug.set(drug.drug_code, drug);
   }
+
+ // a public function that increase the drugs quantity when selling
   public   decreaseDrug(qty: u32,drug_code:string): void {
     const drug = listedDrug.get(drug_code);
     if (drug == null) throw new Error("product not found");
     else drug.balance = drug.balance-qty;
     listedDrug.set(drug.drug_code, drug);
   }
+
+  // in case the price changes this function would update the selling price of the drugs
   public static updateDrugSellingPrice(
     drug_code: string,
     new_price: u64
@@ -57,6 +65,8 @@ export class Drug {
     listedDrug.set(drug.drug_code, drug);
   }
 }
+
+// this class is storing the history of the drugs
 
 @nearBindgen
 export class DrugListEntries {
@@ -69,6 +79,7 @@ export class DrugListEntries {
   selling_price: u64;
   insert_time: string;
   owner: string;
+  // a payload function that would insert the record
   public static fromPayload(payload: DrugListEntries): DrugListEntries {
     const drug_list_entries = new DrugListEntries();
     drug_list_entries.receive_date = payload.receive_date;
