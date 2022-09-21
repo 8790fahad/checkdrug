@@ -3,11 +3,6 @@ import { parseNearAmount } from "near-api-js/lib/utils/format";
 import moment from "moment";
 // const GAS = 100000000000000;
 
-export function createProduct(product) {
-  product.id = uuid4();
-  product.price = parseNearAmount(product.price + "");
-  return window.contract.setProduct({ product });
-}
 
 export function getDrugs() {
   return window.contract.getDrugList();
@@ -29,10 +24,11 @@ export function setDrug(drug) {
   return window.contract.setDrug({ drug: drug, receive_date: receive_date });
 }
 
-export async function buyDrug({ drug, qty }) {
+export async function buyDrug({ drug_code, qty }) {
   drug.insert_time = moment().format("YYYY-MM-DD hh:mm:ss");
   await window.contract.buyDrug({
-    drug: drug,
+    drug_code,
+    insert_time,
     receive_date: moment().format("YYYY-MM-DD"),
     qty: qty,
   });
