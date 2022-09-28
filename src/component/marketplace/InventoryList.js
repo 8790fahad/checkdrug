@@ -23,6 +23,7 @@ import DaterangeSelector from "./DateRange";
 function InventoryList() {
   const navigate = useNavigate();
   const query = useQuery();
+  const account = window.walletConnection.account();
   const drug_code = query.get("drug_code");
   const [loading, setLoading] = useState(false);
   const [drugs, setDrugs] = useState([]);
@@ -32,7 +33,8 @@ function InventoryList() {
   const getDrugsList = useCallback(async () => {
     try {
       setLoading(true);
-      let drugs = await getDrugs();
+      let  _drug = await getDrugs();
+      let  drugs=  _drug && _drug.filter((item)=>item.owner!==account.accountId)
       console.log(drugs)
       const arr = [];
       const reoder = [];
@@ -57,7 +59,7 @@ function InventoryList() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [account.accountId]);
   const updateSellingPrice = async (item_code, new_price) => {
     try {
       setUpdateLoading(true);
