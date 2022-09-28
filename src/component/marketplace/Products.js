@@ -69,11 +69,12 @@ const Products = () => {
   };
 
   const buy = async (drug) => {
+    console.log(drug)
     try {
-      await buyDrug({ drug_code:drug.drug_code, qty: drug.sold }).then((resp) => getProducts());
-      toast(<NotificationSuccess text="Product bought successfully" />);
+      await buyDrug({drug }).then((resp) => getProducts());
+      toast(<NotificationSuccess text="Transaction successfully" />);
     } catch (error) {
-      toast(<NotificationError text="Failed to purchase product." />);
+      toast(<NotificationError text="Transaction failed" />);
     } finally {
       setLoading(false);
     }

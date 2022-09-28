@@ -8,6 +8,7 @@ export async function accountBalance() {
   );
 }
 
+
 export async function getAccountId() {
   return window.walletConnection.getAccountId();
 }

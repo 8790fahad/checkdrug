@@ -72,9 +72,9 @@ export function buyDrug(
 			qty <= _drug.balance,
 			"Not enough drugs in stock to fulfill order"
 		);
-		let totalDue = u128.mul(u128.from(qty), _drug.price);
+		let totalDue = u128.mul(u128.from(qty), _drug.selling_price);
 		assert(
-			totalDue == context.attachedDeposit,
+			totalDue < context.attachedDeposit,
 			`You need to send the total due: ${totalDue}`
 		);
 		// transfer near from buyer to seller

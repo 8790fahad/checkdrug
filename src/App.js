@@ -18,6 +18,7 @@ const App = function AppWrapper() {
 
   useEffect(() => {
     getBalance();
+    console.log(window.walletConnection.account())
   }, [getBalance]);
   //..
   return (
