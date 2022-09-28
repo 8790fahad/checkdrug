@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import AddProduct from "./AddProduct";
 import Product from "./Product";
 import { Row } from "react-bootstrap";
-import { buyDrug, createProduct, getDrugs } from "../../utils/marketplace";
+import { buyDrug,setDrug as createProduct, getDrugs } from "../../utils/marketplace";
 import Loader from "../../utils/loader";
 import {
   NotificationError,
@@ -56,7 +56,7 @@ const Products = () => {
   const addProduct = async (data) => {
     try {
       setLoading(true);
-      createProduct(data).then((resp) => {
+       createProduct(data).then((resp) => {
         getProducts();
       });
       toast(<NotificationSuccess text="Product added successfully." />);
@@ -70,7 +70,7 @@ const Products = () => {
 
   const buy = async (drug) => {
     try {
-      await buyDrug({ drug, qty: drug.sold }).then((resp) => getProducts());
+      await buyDrug({ drug_code:drug.drug_code, qty: drug.sold }).then((resp) => getProducts());
       toast(<NotificationSuccess text="Product bought successfully" />);
     } catch (error) {
       toast(<NotificationError text="Failed to purchase product." />);

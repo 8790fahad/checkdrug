@@ -25,10 +25,9 @@ export function setDrug(drug) {
 }
 
 export async function buyDrug({ drug_code, qty }) {
-  drug.insert_time = moment().format("YYYY-MM-DD hh:mm:ss");
   await window.contract.buyDrug({
     drug_code,
-    insert_time,
+    insert_time:moment().format("YYYY-MM-DD hh:mm:ss"),
     receive_date: moment().format("YYYY-MM-DD"),
     qty: qty,
   });
