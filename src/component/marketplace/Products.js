@@ -3,7 +3,11 @@ import { toast } from "react-toastify";
 import AddProduct from "./AddProduct";
 import Product from "./Product";
 import { Row } from "react-bootstrap";
-import { buyDrug,setDrug as createProduct, getDrugs } from "../../utils/marketplace";
+import {
+  buyDrug,
+  setDrug as createProduct,
+  getDrugs,
+} from "../../utils/marketplace";
 import Loader from "../../utils/loader";
 import {
   NotificationError,
@@ -45,7 +49,7 @@ const Products = () => {
     const arr = [];
     drugs.forEach((item, ind) => {
       if (ind === index) {
-        arr.push({ ...item, sold: item.sold - 1 });
+        arr.push({ ...item, sold: item.sold === 1 ? 1 : item.sold - 1 });
       } else {
         arr.push(item);
       }
@@ -56,7 +60,7 @@ const Products = () => {
   const addProduct = async (data) => {
     try {
       setLoading(true);
-       createProduct(data).then((resp) => {
+      createProduct(data).then((resp) => {
         getProducts();
       });
       toast(<NotificationSuccess text="Product added successfully." />);
@@ -69,9 +73,9 @@ const Products = () => {
   };
 
   const buy = async (drug) => {
-    console.log(drug)
+    console.log(drug);
     try {
-      await buyDrug({drug }).then((resp) => getProducts());
+      await buyDrug({ drug }).then((resp) => getProducts());
       toast(<NotificationSuccess text="Transaction successfully" />);
     } catch (error) {
       toast(<NotificationError text="Transaction failed" />);
