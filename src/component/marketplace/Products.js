@@ -23,7 +23,7 @@ const Products = () => {
       setLoading(true);
       const drugs = await getDrugs();
       const arr = [];
-      drugs.forEach((item) => {
+      drugs.filter((item)=>item.balance>0).forEach((item) => {
         arr.push({ ...item, sold: 1 });
       });
       setDrugs(arr);
