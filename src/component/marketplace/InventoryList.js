@@ -34,7 +34,7 @@ function InventoryList() {
     try {
       setLoading(true);
       let  _drug = await getDrugs();
-      let  drugs=  _drug && _drug.filter((item)=>item.owner!==account.accountId)
+      let  drugs=  _drug && _drug.filter((item)=>item.owner===account.accountId)
       console.log(drugs)
       const arr = [];
       const reoder = [];
